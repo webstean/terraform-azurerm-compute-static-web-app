@@ -1,2 +1,2 @@
-# terraform-azurerm-compute-static-web-app
-Andrew's Terraform module for creating an Azure Static Web App
+<!-- BEGIN_TF_DOCS -->
+<!-- END_TF_DOCS -->
