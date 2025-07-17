@@ -74,4 +74,8 @@ module "static-web-app" {
 special = "special"
 
 }
+---
+## License
+
+Distributed under the Apache-2.0 License. See [LICENSE](./LICENSE.md) for more information.
 
