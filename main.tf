@@ -1,47 +1,22 @@
-## ${each.value.name}
-## ${local.git-repo-from-template[each.key].description}
-## ${local.git-repo-from-template[each.key].details}
+## check the input variables are axctually valid
 
-module "this" {
-  source  = "Azure/avm-res-web-staticsite/azurerm"
-  version = "~>0.0, < 1.0"
+data "azurerm_resource_group" "this" {
+  name = var.resource_group_name
+}
 
-  enable_telemetry = var.enable_telementry
+data "azuread_group" "this" {
+  object_id = startswith(var.entra_group_id, "/groups/") ? substr(var.entra_group_id, 8, -1) : var.entra_group_id
+}
 
-  name                = var.application_name
+data "azuread_managed_identity" "this" {
+  name                = var.user_managed_id
   resource_group_name = var.resource_group_name
-  location            = local.regions[each.key].swa_location
-
-  preview_environments_enabled = false
-
-  managed_identities = {
-    system_assigned            = false
-    user_assigned_resource_ids = [var.user_managed_id]
-  }
-
-  app_settings = {
-    ##    WEBSITE_NODE_DEFAULT_VERSION           = "22.16.0"
-    WEBSITE_TIME_ZONE = local.regions["sydney"].timezone
-    ##    WEB_CONCURRENCY                        = "1"
-    ##    WEBSITE_ENABLE_SYNC_UPDATE_SITE        = "true"
-    ##    WEBSITE_ENABLE_SYNC_UPDATE_SITE_LOCKED = "false"
-    ##    WEBSITE_NODE_DEFAULT_VERSION_LOCKED    = "false"
-    WEBSITE_TIME_ZONE_LOCKED = "false"
-    ##    WEB_CONCURRENCY_LOCKED                 = "false"
-    ##    WEBSITE_RUN_FROM_PACKAGE_LOCKED        = "false"
-  }
-
-  #basic_auth_enabled = true
-
-  sku_tier = var.sku_size == lower("free") ? "Free" : "Standard" ## Free or Standard
-  sku_size = var.sku_size == lower("free") ? "Free" : "Standard" ## Free or Standard
-
-  tags = each.value.tags
 }
 
-output "staticsite_id" {
-  value = module.staticsite.id
+/*
+data "azurerm_subnet" "private-endpoints" {
+  name                 = var.private_subnet_name
+  virtual_network_name = var.virtual_network_name
+  resource_group_name  = var.resource_group_name
 }
-output "staticsite_name" {
-  value = module.staticsite.name
-}
+*/
