@@ -84,7 +84,7 @@ special = "special"
 ---
 ## License
 
-Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](./LICENSE.md) for more information.
+Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](./LICENSE) for more information.
 
 <!-- markdownlint-disable MD033 -->
 ## Requirements
@@ -112,10 +112,13 @@ Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](
 | [azuread_domains.initial](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/domains) | data source |
 | [azuread_domains.root](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/domains) | data source |
 | [azuread_domains.unmanaged](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/domains) | data source |
+| [azuread_group.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
+| [azuread_managed_identity.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/managed_identity) | data source |
 | [azuread_service_principal.existing-apim](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
 | [azuread_service_principal.existing-dynamicserp](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
 | [azuread_service_principal.msgraph](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
+| [azurerm_resource_group.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/resource_group) | data source |
 | [azurerm_role_definition.blob_contributor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) | data source |
 | [azurerm_role_definition.blob_owner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) | data source |
 | [azurerm_role_definition.blob_reader](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) | data source |
@@ -180,8 +183,6 @@ Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](
 | <a name="output_project_name"></a> [project\_name](#output\_project\_name) | (Required) project name used to distinguish that exist to enable the rare case where you want the same application deployed<br/>multiple times (as a different) projects within the same application landing zone. |
 | <a name="output_size_name"></a> [size\_name](#output\_size\_name) | (Required) The size of the resultant resource/resources (small, medium, large or x-large).<br/>Note: The larger the size the higher the cost! |
 | <a name="output_sku_name"></a> [sku\_name](#output\_sku\_name) | (Required) The sku\_name of the resource to be created (for example, free, basic, standard, premium or isolated)<br/>The higher the sku, the more capabilities such as high availability and auto scalling are available. |
-| <a name="output_staticsite_id"></a> [staticsite\_id](#output\_staticsite\_id) | n/a |
-| <a name="output_staticsite_name"></a> [staticsite\_name](#output\_staticsite\_name) | n/a |
 | <a name="output_subscription_display_name"></a> [subscription\_display\_name](#output\_subscription\_display\_name) | Azure Subscription Display Name |
 | <a name="output_subscription_id"></a> [subscription\_id](#output\_subscription\_id) | Azure Subscription ID |
 | <a name="output_tenant_id"></a> [tenant\_id](#output\_tenant\_id) | Azure Tenant ID |
@@ -191,7 +192,6 @@ Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_naming-application"></a> [naming-application](#module\_naming-application) | Azure/naming/azurerm | ~>0.0, < 1.0 |
-| <a name="module_this"></a> [this](#module\_this) | Azure/avm-res-web-staticsite/azurerm | ~>0.0, < 1.0 |
 
 ---
 
